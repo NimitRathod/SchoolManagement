@@ -1,6 +1,6 @@
 ## School Managment
 
-1) clone this project from your local drive using this url
+1) clone this project from your local drive using the command git clone https://github.com/NimitRathod/SchoolManagement.git
 2) Run the command and enter the project folder cd SchoolManagement/school_management
 3) Run command composer update 
 4) company .env.example to .env 

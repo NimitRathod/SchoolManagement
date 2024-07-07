@@ -1,4 +1,9 @@
-1) Install Laravel
-2) Add ACL(User Role Permission) Spatie Package
-3) Add Yajra Datatable Package
-4) 
+## School Managment
+
+1) clone this project from your local drive using this url
+2) Run the command and enter the project folder cd SchoolManagement/school_management
+3) Run command composer update 
+4) company .env.example to .env 
+    - update the mysql database name, username and password
+5) Generate project php artisan key:generate
+6) Run command php artisan serve

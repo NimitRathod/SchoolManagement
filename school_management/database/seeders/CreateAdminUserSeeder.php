@@ -15,16 +15,16 @@ class CreateAdminUserSeeder extends Seeder
     public function run(): void
     {
         $users = [[
-            'name' => 'Nimit Rathod', 
-            'email' => 'nimitrathod1997@gmail.com',
-            'password' => bcrypt('nimit@123'),
+            'name' => 'Developer -Nimit Rathod', 
+            'email' => 'developer@gmail.com',
+            'password' => bcrypt('developer@123'),
         ]];
         
         foreach($users AS $user_data){
             $user = User::create($user_data);
         }
 
-        $user = User::where('email','nimitrathod1997@gmail.com')->first();
+        $user = User::where('email','developer@gmail.com')->first();
 
         $role = Role::where('name','developer')->first();
         

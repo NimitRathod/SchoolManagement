@@ -148,7 +148,6 @@ class AnnouncementsController extends Controller
                         'role_id' => $role?->id,
                         'created_by' => auth()->id(),
                     ]);
-
                 }
 
             }
@@ -188,11 +187,28 @@ class AnnouncementsController extends Controller
         //
     }
     
-    /**
-    * Remove the specified resource from storage.
-    */
-    public function destroy(string $id)
+    public function destroy(Request $request, string $id)
     {
-        //
+        try{
+            $modules = $this->modules;
+            $dataDelete = Announcement::findOrFail($id);
+            if($dataDelete){
+                if($request->ajax()){
+                    if($dataDelete->delete()){
+                        // return Redirect::route($modules['route'].'.index');
+                        return true;
+                    }
+                    return false;
+                }
+                if($dataDelete->delete()){
+                    return Redirect::route($modules['route'].'.index');
+                }
+            }
+            return Redirect::back()->withErrors('something went wrong please try again later');
+        }
+        catch(\Exception $e) {
+            DB::rollBack();
+            return Redirect::route($modules['route'].'.index')->withErrors($e->getMessage());
+        }
     }
 }
